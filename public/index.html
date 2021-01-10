@@ -37,7 +37,7 @@
         
             <script type="text/javascript" src="cryptCore.js"></script>
 
-            <form class="crypt-form">
+            <form id="cryptForm">
                 <fieldset>
 
                 <label for="clearTextForEncription">clearText</label>
@@ -46,7 +46,7 @@
                 <label for="keyForEncription">key</label>
                 <input id="keyForEncription" name="keyForEncription" type="text" />
 
-                <input id="cTFEButton" type="button" value="暗号化!">
+                <input id="encryptionButton" type="button" value="暗号化!" onclick="encrypt();">
                 
                 <label for="codeEncypted">code</label>
                 <input id="codeEncrypted" name="codeEncrypted" type="text" />
@@ -60,7 +60,7 @@
                 <label for="keyForDecription">key</label>
                 <input id="keyForDecription" name="keyForDecription" type="text" />
 
-                <input id="DecryptionButton" type="button" value="復号化!">
+                <input id="deecryptionButton" type="button" value="復号化!">
                 
                 <label for="clearTextDecypted">clearText</label>
                 <input id="clearTextDecrypted" name="clearTextDecrypted" type="text" />
