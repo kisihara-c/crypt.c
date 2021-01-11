@@ -1,4 +1,4 @@
-//var hash = forge.md.md5.create();hash.update("test");
+//let hash = forge.md.md5.create();hash.update("test");
 //document.write(hash.digest().toHex());
 //const alertAdd = ()=>{document.write(hash2.digest().toHex());};
 
@@ -9,27 +9,34 @@ function encrypt(){
     const key = document.getElementById('keyForEncription').value;
 
     if(clearText === "" || key === ""){
-        document.getElementById('codeEncrypted').value = "nullError";
+        document.getElementById('codeEncrypted').value = "brankError<3";
     }
     else{
         document.getElementById('codeEncrypted').value = "";
 
-        var salt = forge.md.sha256.create();
-        salt.update(key);
-
-        var iv = forge.pkcs5.pbkdf2(key, salt, 32, 32);
-        var seed = forge.pkcs5.pbkdf2(key, salt, 32, 32);
-
-        var cipher = forge.cipher.createCipher('AES-CBC', seed);
-        cipher.start({iv: iv});
-        cipher.update(forge.util.createBuffer(16));
-        cipher.finish();
-        var encrypted = cipher.output;
-        document.getElementById('codeEncrypted').value = encrypted.toHex();
+        let encrypted = CryptoJS.AES.encrypt(clearText,key);
+        document.getElementById('codeEncrypted').value = encrypted;
     }
 
 }
 
 function decrypt(){
+    const code = document.getElementById('codeForDecription').value;
+    const key = document.getElementById('keyForDecription').value;
+
+    if(code === "" || key === ""){
+        document.getElementById('clearTextDecrypted').value = "brankError<3";
+    }
+    else{
+        document.getElementById('clearTextDecrypted').value = "";
+
+        let decrypted = CryptoJS.AES.decrypt(code,key);
+        document.getElementById('clearTextDecrypted').value = decrypted.toString(CryptoJS.enc.Utf8);
+    }
+
+}
+
+//後で共通化
+function keyToCryptTools(){
 
 }
