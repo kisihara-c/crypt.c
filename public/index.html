@@ -23,6 +23,14 @@
             input{
                 color:#e1f3f3;
             }
+            .Econtainer{
+                display:flex;
+            }
+            .Dcontainer{
+                margin-top:3em;
+                display:flex;
+            }
+
         </style>
 
     </head>
@@ -38,12 +46,18 @@
 
             <form id="cryptForm">
                 <fieldset>
-
+                
+                <div class="Econtainer">
+                <div class="cTFEdiv">
                 <label for="clearTextForEncription">clearText</label>
                 <input id="clearTextForEncription" name="clearTextForEncription" type="text"/>
+                </div>
                 
+                <div class="kFEdiv">
                 <label for="keyForEncription">key</label>
                 <input id="keyForEncription" name="keyForEncription" type="text" />
+                </div>
+                </div>
 
                 <input id="encryptionButton" type="button" value="暗号化!" onclick="encrypt();">
                 
@@ -52,11 +66,17 @@
 
                 
 
+                <div class="Dcontainer">
+                <div class="cTFDdiv">
                 <label for="codeForDecription">code</label>
                 <input id="codeForDecription" name="codeForDecription" type="text" />
+                </div>
                 
+                <div class="kFDdiv">
                 <label for="keyForDecription">key</label>
                 <input id="keyForDecription" name="keyForDecription" type="text" />
+                </div>
+                </div>
 
                 <input id="deecryptionButton" type="button" value="復号化!" onclick="decrypt();">
                 
